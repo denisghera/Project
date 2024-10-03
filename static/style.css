@@ -1,18 +1,140 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    color: #333;
 }
 
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 15px;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 main {
+    max-width: 1200px;
+    margin: 30px auto;
     padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+main h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+li:hover {
+    background-color: #f1f1f1;
+}
+
+li span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+li span.price {
+    font-weight: normal;
+    color: #777;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+a.button:hover {
+    background-color: #45a049;
+}
+
+/* Footer (optional for expansion) */
+footer {
+    background-color: #333;
+    color: white;
     text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 90%;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 1em;
+    }
+
+    main {
+        padding: 15px;
+        margin: 20px;
+    }
 }

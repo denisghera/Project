@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocery App - Home</title>
+    <title>{% block title %}Grocery App{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
 </head>
 <body>
     <header>
-        <h1>Welcome to my Grocery App</h1>
+        <h1>{% block header %}Welcome to my Grocery App{% endblock %}</h1>
         <nav>
             <a href="{{ url_for('home') }}">Home</a>
             <a href="{{ url_for('products') }}">Products</a>
@@ -17,8 +18,7 @@
         </nav>
     </header>
     <main>
-        <h2>Explore our grocery app!</h2>
-        <p>Click the links above to view different pages.</p>
+        {% block content %}{% endblock %}
     </main>    
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

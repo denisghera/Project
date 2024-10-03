@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin - Product Management{% endblock %}
+
+{% block header %}
+    Admin Panel - Product Management
+{% endblock %}
+
+{% block content %}
+    <!-- Section to Add a New Product -->
+    <section>
+        <h2>Add New Product</h2>
+        <form id="addProductForm">
+            <input type="text" id="newProductName" placeholder="Product Name" required>
+            <input type="number" id="newProductPrice" placeholder="Product Price" step="0.01" required>
+            <button type="submit">Add Product</button>
+        </form>
+    </section>
+
+    <!-- Section to Update/Delete Products -->
+    <section>
+        <h2>Manage Products</h2>
+        <ul id="productList">
+            <!-- Product items will be inserted here by JavaScript -->
+        </ul>
+    </section>
+
+    <!-- Reference the external JavaScript file -->
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+{% endblock %}
