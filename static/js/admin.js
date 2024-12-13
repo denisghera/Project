@@ -1,15 +1,13 @@
-// Fetch and display all products on page load
 window.onload = function() {
     loadProducts();
 }
 
-// Function to load and display products from the API
 function loadProducts() {
     fetch('/api/products')
         .then(response => response.json())
         .then(data => {
             const productList = document.getElementById('productList');
-            productList.innerHTML = ''; // Clear the list
+            productList.innerHTML = '';
             data.forEach(product => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
@@ -22,7 +20,6 @@ function loadProducts() {
         });
 }
 
-// Function to handle adding a product
 document.getElementById('addProductForm').onsubmit = function(event) {
     event.preventDefault(); // Prevent page reload
 
@@ -39,11 +36,10 @@ document.getElementById('addProductForm').onsubmit = function(event) {
     .then(response => response.json())
     .then(data => {
         alert(data.message);
-        loadProducts(); // Refresh product list after adding
+        loadProducts();
     });
 }
 
-// Function to delete a product
 function deleteProduct(name) {
     if (!confirm(`Are you sure you want to delete ${name}?`)) return;
 
@@ -53,11 +49,10 @@ function deleteProduct(name) {
     .then(response => response.json())
     .then(data => {
         alert(data.message);
-        loadProducts(); // Refresh product list after deletion
+        loadProducts();
     });
 }
 
-// Function to edit a product
 function editProduct(name, currentPrice) {
     const newPrice = prompt(`Enter new price for ${name}`, currentPrice);
 
@@ -72,7 +67,7 @@ function editProduct(name, currentPrice) {
         .then(response => response.json())
         .then(data => {
             alert(data.message);
-            loadProducts(); // Refresh product list after editing
+            loadProducts();
         });
     }
 }

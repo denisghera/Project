@@ -1,0 +1,126 @@
+body {
+    background-color: #559d956c;
+    font-family: "Baumans", system-ui;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #264653;
+    padding: 1rem 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    text-align: center;
+}
+
+header nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #2a9d8f;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: #1e6b62;
+    border: 2px solid #202c2662;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+}
+
+footer {
+    background-color: #264653;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+footer a {
+    color: #2a9d8f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.flash-messages {
+    position: fixed;
+    top: 13px;
+    right: 20px;
+    width: auto;
+    max-width: 300px;
+    z-index: 9999;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.flash {
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    opacity: 0;
+    animation: fadeInOut 5s forwards;
+}
+
+.flash.success {
+    background-color: #28a745;
+}
+
+.flash.danger {
+    background-color: #dc3545;
+}
+
+.flash.info {
+    background-color: #17a2b8;
+}
+
+.flash.warning {
+    background-color: #ffc107;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}

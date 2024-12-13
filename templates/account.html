@@ -2,9 +2,23 @@
 
 {% block title %}Account{% endblock %}
 
-{% block header %}Your Account{% endblock %}
-
 {% block content %}
-    <h2>Manage your account here.</h2>
-    <p>Account-related information will go here.</p>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css') }}">
+
+    <div class="account-container">
+        {% if 'username' in session %}
+            <h1>Welcome, {{ session['username'] }}!</h1>
+            <p>This is your account page.</p>
+            <form method="POST" action="{{ url_for('logout') }}">
+                <button type="submit" class="btn">Logout</button>
+            </form>
+        {% else %}
+            <h1>Account Page</h1>
+            <p>You are not logged in.</p>
+            <div class="button-container">
+                <a href="{{ url_for('login') }}" class="btn">Login</a>
+                <a href="{{ url_for('register') }}" class="btn">Register</a>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

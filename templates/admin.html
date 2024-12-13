@@ -2,12 +2,7 @@
 
 {% block title %}Admin - Product Management{% endblock %}
 
-{% block header %}
-    Admin Panel - Product Management
-{% endblock %}
-
 {% block content %}
-    <!-- Section to Add a New Product -->
     <section>
         <h2>Add New Product</h2>
         <form id="addProductForm">
@@ -17,14 +12,11 @@
         </form>
     </section>
 
-    <!-- Section to Update/Delete Products -->
     <section>
         <h2>Manage Products</h2>
         <ul id="productList">
-            <!-- Product items will be inserted here by JavaScript -->
         </ul>
     </section>
 
-    <!-- Reference the external JavaScript file -->
-    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
 {% endblock %}

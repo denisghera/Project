@@ -3,6 +3,30 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h2>Explore our grocery app!</h2>
-    <p>Click the links above to view different pages.</p>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+
+    <div class="pane-container">
+        <div class="pane">
+            <div class="pane-content">
+                <h4>Best offer</h4>
+                <h3>Potatoes</h3>
+                <p>0.28€/Kg</p>
+            </div>
+            <div class="pane-image">
+                <img class="potato" src="/static/img/potatoes.png" alt="Potatoes" />
+            </div>
+        </div>
+        <div class="pane">
+            <div>
+                <h1>Grocery Web Application</h1>
+                <span>Your no. 1 place for fresh ingredients*</span>
+            </div>
+        </div>
+        <div class="pane">Pane 3</div>
+        <div class="pane">Pane 4</div>
+        <div class="pane">Pane 5</div>
+    </div>
+    <div class="info">
+        * According to me lol
+    </div>
 {% endblock %}
