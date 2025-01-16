@@ -3,10 +3,27 @@
 {% block title %}Products{% endblock %}
 
 {% block content %}
-    <h2>Available Products</h2>
-    <ul>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/products.css') }}">
+
+    <div class="products-container">
         {% for product in products %}
-            <li>{{ product['name'] }} - ${{ product['price'] }}</li>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='img/products/' + (product['image'] if 'image' in product else 'default.png')) }}" 
+                     alt="{{ product['name'] }}">
+            </div>            
+            <div class="product-info">
+                <h3>{{ product['name'] }}</h3>
+                <p>Price: ${{ product['price'] }}</p>
+                {% if 'username' in session %}
+                <form method="POST" action="{{ url_for('add_to_cart', product_name=product['name']) }}">
+                    <button type="submit" class="btn"><i class="fas fa-shopping-cart"></i></button>
+                </form>
+                {% else %}
+                <p class="login-notice">Login to add items to your cart.</p>
+                {% endif %}
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

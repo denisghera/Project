@@ -1,0 +1,90 @@
+.contact-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 50px;
+}
+
+.contact-container {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-container h1,
+.contact-container h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.contact-container h2 {
+    margin-top: 50px;
+}
+
+.contact-container p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.contact-container a {
+    color: #2a9d8f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-container a:hover {
+    color: #1e6b62;
+}
+
+form#subscribeForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+form#subscribeForm input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+form#subscribeForm button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #2a9d8f;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+form#subscribeForm button:hover {
+    background-color: #1e6b62;
+    transform: translateY(-2px);
+}
+
+form#subscribeForm button:active {
+    transform: translateY(1px);
+    background-color: #004080;
+}
+
+.map-container {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 385px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

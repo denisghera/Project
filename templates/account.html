@@ -5,20 +5,47 @@
 {% block content %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css') }}">
 
-    <div class="account-container">
+    <div class="account-page">
+        <div class="account-container">
+            {% if 'username' in session %}
+                <h1>Welcome, {{ session['username'] }}!</h1>
+                <p>This is your account page.</p>
+                <form method="POST" action="{{ url_for('logout') }}">
+                    <button type="submit" class="btn">Logout</button>
+                </form>
+            {% else %}
+                <h1>Account Page</h1>
+                <p>You are not logged in.</p>
+                <div class="button-container">
+                    <a href="{{ url_for('login') }}" class="btn">Login</a>
+                    <a href="{{ url_for('register') }}" class="btn">Register</a>
+                </div>
+            {% endif %}
+        </div>
         {% if 'username' in session %}
-            <h1>Welcome, {{ session['username'] }}!</h1>
-            <p>This is your account page.</p>
-            <form method="POST" action="{{ url_for('logout') }}">
-                <button type="submit" class="btn">Logout</button>
-            </form>
-        {% else %}
-            <h1>Account Page</h1>
-            <p>You are not logged in.</p>
-            <div class="button-container">
-                <a href="{{ url_for('login') }}" class="btn">Login</a>
-                <a href="{{ url_for('register') }}" class="btn">Register</a>
-            </div>
+            <div class="cart-container">
+                <h1>Your Shopping List</h1>
+                {% if cart %}
+                    <ul class="cart-list">
+                        {% for product in cart %}
+                        <li class="cart-item">
+                            <span>{{ product['name'] }}</span>
+                            <div class="price-and-delete">
+                                <span>${{ product['price'] }}</span>
+                                <form method="POST" action="{{ url_for('remove_from_cart', product_name=product['name']) }}" class="remove-item-form">
+                                    <button type="submit" class="remove-item-btn" title="Remove">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </li>                        
+                        {% endfor %}
+                    </ul>
+                    <p class="cart-total">Total: ${{ total_price | round(2) }}</p>
+                {% else %}
+                    <p>Your cart is empty.</p>
+                {% endif %}
+            </div>        
         {% endif %}
     </div>
 {% endblock %}

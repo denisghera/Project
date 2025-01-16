@@ -1,0 +1,159 @@
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    max-width: 800px;
+    min-width: 300px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2a9d8f;
+    border-bottom: 2px solid #2a9d8f;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1e6b62;
+}
+
+#productList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#productList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+#productList li span {
+    flex: 1;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+#productList li button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#productList li button:hover {
+    background-color: #1e6b62;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.image-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 50px;
+}
+
+.product-image {
+    max-width: 25px;
+    max-height: 25px;
+    margin-right: 15px;
+}
+
+.image-upload {
+    display: none;
+}
+
+.image-upload + label {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+}
+
+.image-upload + label:hover {
+    background-color: #1e6b62;
+}
+
+.image-upload + label i {
+    font-size: 1.2rem;
+}
+
+.admin-container {
+    display: flex;
+    justify-content: center;
+}
+
+.add-product, .csv-upload {
+    margin: 20px 50px;
+}
+
+.file-name {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+    font-style: italic;
+    text-align: center;
+}
+
+#imagePreview {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.image-upload-container {
+    display: flex;
+    align-items: space;
+    justify-content: space-around;
+}

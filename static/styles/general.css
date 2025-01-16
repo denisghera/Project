@@ -13,10 +13,14 @@ header {
     background-color: #264653;
     padding: 1rem 0;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 header nav {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 header nav a {
@@ -38,6 +42,13 @@ header nav a:hover {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
 }
 
+.user-info {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 main {
     flex: 1;
     padding: 1rem;
@@ -53,6 +64,7 @@ footer {
 }
 
 footer p {
+    color: white;
     margin: 0;
     font-size: 1rem;
     letter-spacing: 0.5px;

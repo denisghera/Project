@@ -1,20 +1,109 @@
-.button-container {
+.account-page {
     display: flex;
-    gap: 10px;
     justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.account-container,
+.cart-container {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.account-container h1,
+.cart-container h1 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.account-container p,
+.cart-container p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
+
+.button-container,
+form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
     margin-top: 20px;
 }
 
 .btn {
+    display: inline-block;
     padding: 10px 20px;
-    text-align: center;
-    background-color: #007BFF;
+    font-size: 1rem;
     color: white;
+    background-color: #2a9d8f;
     text-decoration: none;
+    border: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #1e6b62;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    background-color: #004080;
+}
+
+.account-container {
+    max-height: 160px;
+}
+
+.remove-item-form {
+    display: inline;
+    margin-top: 0;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 1.2rem;
+}
+
+.remove-item-btn:hover {
+    color: darkred;
+}
+
+.price-and-delete {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

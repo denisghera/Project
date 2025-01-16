@@ -3,6 +3,23 @@
 {% block title %}Recipes{% endblock %}
 
 {% block content %}
-    <h2>Explore our recipes!</h2>
-    <p>Recipe-related information will go here.</p>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/recipes.css') }}">
+
+    <h2 class="recipes-header">Discover Delicious Recipes!</h2>
+    <div class="recipes-container">
+        {% for recipe in recipes %}
+        <div class="recipe-card">
+            <a href="{{ url_for('recipe_detail', recipe_id=recipe['name']) }}" class="recipe-link">
+                <div class="recipe-image">
+                    <img src="{{ url_for('static', filename='img/recipes/' + (recipe['image'] if 'image' in recipe and recipe['image_exists'] else 'default_recipe.png')) }}" 
+                         alt="{{ recipe['title'] }}">
+                </div>
+                <div class="recipe-info">
+                    <h3>{{ recipe['title'] }}</h3>
+                    <p>{{ recipe['short_description'] }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

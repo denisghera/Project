@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/recipe_detail.css') }}">
+
+    <div class="recipe-detail-container">
+        <div class="recipe-detail-header">
+            <div class="recipe-detail-image">
+                <img src="{{ url_for('static', filename='img/recipes/' + (recipe['image'] if 'image' in recipe else 'default_recipe.png')) }}" 
+                     alt="{{ recipe.title }}">
+            </div>
+            <div class="recipe-title">
+                <h2>{{ recipe.title }}</h2>
+            </div>
+        </div>
+        <p class="recipe-description">{{ recipe.description }}</p>            
+        <form method="POST" action="{{ url_for('add_ingredients_to_cart') }}">
+            <h3>Ingredients:</h3>
+            <ul class="recipe-ingredients">
+                {% for ingredient in recipe.ingredients %}
+                <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        
+            <input type="hidden" name="ingredients" value="{% for ingredient in recipe.ingredients %}{{ ingredient }}{% if not loop.last %},{% endif %}{% endfor %}">
+        
+            <button type="submit" class="add-to-cart-btn">Add Ingredients to Shopping List</button>
+        </form>        
+        <h3>Steps:</h3>
+        <ol class="recipe-steps">
+            {% for step in recipe.steps %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+    <script src="{{ url_for('static', filename='js/recipe.js') }}"></script>
+{% endblock %}

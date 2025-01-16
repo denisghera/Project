@@ -11,7 +11,7 @@
 
 .pane {
     display: flex;
-    background-color: #def3f7;
+    background-color: #f9f9f9;
     border: 1px solid #5757574b;
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
 }
 
 .pane:nth-child(2n) {
@@ -37,40 +38,147 @@
 
 .pane:nth-child(1) {
     justify-content: space-between;
+    flex-direction: row;
 }
 
-.pane h4, .pane h3, .pane p {
+.pane-content h4, .pane-content h3, .pane-content p {
     text-align: left;
     margin-top: 0;
     padding-left: 10px;
     margin-bottom: 5px;
 }
 
-.pane h3 {
+.pane-content h3 {
     margin-top: 40px;
 }
 
-.pane:nth-child(2) {
-    background-image: url('../img/grocery_bg_2.jpg');
-    background-size: cover;
-}
-
 .pane h1 {
-    color: #ffffff;
+    color: black;
+    margin-bottom: 5px;
 }
 
 .pane span {
-    color: #b9b9b9;
+    color: #373737;
     font-size: 0.9rem;
+}
+
+.pane-image img {
+    width: 130px;
 }
 
 .info {
     color: #696969;
     font-size: 0.9rem;
     margin-top: 3vw;
-    margin-left: 6vw;;
+    margin-left: 6vw;
 }
 
-.potato {
-    width: 130px;
+.pane.recipe-of-the-day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.recipe-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.recipe-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.recipe-text h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.recipe-text h3 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.recipe-text p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.recipe-image {
+    flex: 0 0 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-icon {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.register-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2a9d8f;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: #1e6b62;
+}
+
+.subscribe-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.subscribe-text h4 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #007b5e;
+    margin-bottom: 10px;
+}
+
+.subscribe-text h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.subscribe-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2a9d8f;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-btn:hover {
+    background-color: #1e6b62;
+}
+
+.subscribe-icon {
+    width: 140px;
+}
+
+.hint {
+    font-size: 0.9rem;
+    margin: 5px 0;
 }

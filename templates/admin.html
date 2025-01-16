@@ -3,19 +3,43 @@
 {% block title %}Admin - Product Management{% endblock %}
 
 {% block content %}
-    <section>
-        <h2>Add New Product</h2>
-        <form id="addProductForm">
-            <input type="text" id="newProductName" placeholder="Product Name" required>
-            <input type="number" id="newProductPrice" placeholder="Product Price" step="0.01" required>
-            <button type="submit">Add Product</button>
-        </form>
-    </section>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}">
+
+    <div class="admin-container">
+        <section class="add-product">
+            <h2>Add New Product</h2>
+            <form id="addProductForm" enctype="multipart/form-data">
+                <input type="text" id="newProductName" placeholder="Product Name" required>
+                <input type="number" id="newProductPrice" placeholder="Product Price" step="0.01" required>
+
+                <div class="image-upload-container">
+                    <input type="file" id="newProductImage" class="image-upload" accept="image/*" onchange="showImagePreview(event)">
+                    <label for="newProductImage">
+                        <i class="fas fa-image"></i> Upload Image
+                    </label>
+                    <img id="imagePreview" src="#" alt="Image Preview" style="display: none;">
+                </div>
+
+                <button type="submit">Add Product</button>
+            </form>
+        </section>
+
+        <section class="csv-upload">
+            <h2>Upload Products via CSV</h2>
+            <form id="csvUploadForm" enctype="multipart/form-data">
+                <input type="file" id="csvFile" accept=".csv" class="image-upload">
+                <label for="csvFile">
+                    <i class="fas fa-file-excel"></i> Upload CSV 
+                </label>
+                <div id="csvFileName" class="file-name"></div>
+                <button type="submit">Load Data</button>
+            </form>
+        </section>
+    </div>
 
     <section>
         <h2>Manage Products</h2>
-        <ul id="productList">
-        </ul>
+        <ul id="productList"></ul>
     </section>
 
     <script src="{{ url_for('static', filename='js/admin.js') }}"></script>

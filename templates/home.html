@@ -7,24 +7,70 @@
 
     <div class="pane-container">
         <div class="pane">
-            <div class="pane-content">
-                <h4>Best offer</h4>
-                <h3>Potatoes</h3>
-                <p>0.28€/Kg</p>
-            </div>
-            <div class="pane-image">
-                <img class="potato" src="/static/img/potatoes.png" alt="Potatoes" />
-            </div>
-        </div>
+            {% if best_offer %}
+                <div class="pane-content">
+                    <h4>Best Offer</h4>
+                    <h3>{{ best_offer['name'] }}</h3>
+                    <p>${{ best_offer['price'] }}</p>
+                </div>
+                <div class="pane-image">
+                    {% if best_offer.get('image') %}
+                        <img class="offer-image" src="{{ url_for('static', filename='img/products/' + best_offer['image']) }}" alt="{{ best_offer['name'] }}" />
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                </div>
+            {% else %}
+                <p>No best offer available</p>
+            {% endif %}
+        </div>        
         <div class="pane">
             <div>
-                <h1>Grocery Web Application</h1>
+                <h1>Amazing Web Supermarket</h1>
+                <p class="hint">AWS 😉</p>
                 <span>Your no. 1 place for fresh ingredients*</span>
             </div>
         </div>
-        <div class="pane">Pane 3</div>
-        <div class="pane">Pane 4</div>
-        <div class="pane">Pane 5</div>
+        <div class="pane">
+            <div class="subscribe-content">
+                <div class="subscribe-image">
+                    <img src="/static/img/subscribe.png" alt="Star Icon" class="subscribe-icon" />
+                </div>
+                <div class="subscribe-text">
+                    <h4>Stay Updated!</h4>
+                    <h3>Subscribe to our email for the latest updates and customized discounts.</h3>
+                    <a href="{{ url_for('contact') }}" class="subscribe-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>              
+        <div class="pane recipe-of-the-day">
+            {% if recipe_of_the_day %}
+                <div class="recipe-content">
+                    <div class="recipe-text">
+                        <h4>Recipe of the Day</h4>
+                        <h3>{{ recipe_of_the_day['title'] }}</h3>
+                        <p>{{ recipe_of_the_day.get('description', 'No description available.') }}</p>
+                    </div>
+                    <div class="recipe-image">
+                        {% if recipe_of_the_day.get('image') %}
+                            <img src="{{ url_for('static', filename='img/recipes/' + recipe_of_the_day['image']) }}" alt="{{ recipe_of_the_day['name'] }}" class="recipe-icon" />
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% else %}
+                <p>No recipe available</p>
+            {% endif %}
+        </div>        
+        <div class="pane">
+            {% if 'username' in session %}
+                <h2>Welcome back, <br>{{ session['username'] }}!</h2>
+            {% else %}
+                <h2>Register for exclusive benefits</h2>
+                <a href="{{ url_for('register') }}" class="register-btn">Go to Register</a>
+            {% endif %}
+        </div>
     </div>
     <div class="info">
         * According to me lol

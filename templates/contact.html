@@ -3,5 +3,23 @@
 {% block title %}Contact{% endblock %}
 
 {% block content %}
-    <h2>whatever</h2>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact.css') }}">
+
+    <div class="contact-page">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p>Email: <a href="mailto:store@example.com">store@example.com</a></p>
+            <p>Phone: <a href="tel:+123456789">+1 234 567 89</a></p>
+            <p>Address: 123 Main Street, Anytown, USA</p>
+            
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="subscribeForm" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.1979521300646!2d-122.07423701716168!3d37.408795800089756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb77db5370055%3A0xb935ab877a88de41!2s1600%20Amphitheatre%20Parkway%2C%20Mountain%20View%2C%20CA%2094043%2C%20Statele%20Unite%20ale%20Americii!5e0!3m2!1sro!2sro!4v1737056376382!5m2!1sro!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
 {% endblock %}
